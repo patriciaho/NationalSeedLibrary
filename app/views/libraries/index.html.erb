@@ -1,0 +1,7 @@
+<h1>Libraries#index</h1>
+
+<% @libraries.each do |library| %>
+  <%= link_to library.name, library_path(library) %><br />
+<% end %>
+
+<%= link_to 'Add New', new_library_path %>

@@ -1,0 +1,9 @@
+<h1>Libraries#new</h1>
+<% if flash[:error] %>
+  <div><%= flash[:error] %></div>
+<% end %>
+
+<%= render partial: 'form' %>
+
+<%= link_to 'Back', libraries_path %>
+
