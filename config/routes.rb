@@ -1,5 +1,9 @@
 NationalSeedLibrary::Application.routes.draw do
   resources :libraries
+
+  get 'landings/index'
+
+  root 'landings#index'
   # get "libraries/index"
   # get "libraries/new"
   # get "libraries/create"

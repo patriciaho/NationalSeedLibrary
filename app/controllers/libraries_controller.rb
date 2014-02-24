@@ -1,6 +1,11 @@
 class LibrariesController < ApplicationController
   def index
     @libraries = Library.all
+    @hash = Gmaps4rails.build_markers(@libraries) do |library, marker|
+      marker.lat library.latitude
+      marker.lng library.longitude
+      marker.infowindow library.name
+    end
   end
 
   def new
@@ -42,6 +47,6 @@ class LibrariesController < ApplicationController
   private
 
   def library_params
-    params.require(:library).permit(:name)
+    params.require(:library).permit(:name, :address)
   end
 end

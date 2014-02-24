@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Library.destroy_all
+
+libraries = Library.create([{ name: 'SLOLA', address: '13000 Venice Blvd., 90066' },
+                            { name: 'Petaluma Seed Bank', address: '199 Petaluma Blvd., North Petaluma, CA 94952'
+
+  }])
