@@ -1,0 +1,8 @@
+<h1>Seeds#new</h1>
+<% if flash[:error] %>
+  <div><%= flash[:error] %></div>
+<% end %>
+
+<%= render partial: 'form' %>
+
+<%= link_to 'Back', seeds_path %>

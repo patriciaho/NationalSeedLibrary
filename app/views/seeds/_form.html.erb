@@ -1,0 +1,13 @@
+<%= form_for @seed do |f| %>
+  <%=f.label :common_name %>
+  <%=f.text_field :common_name %><br />
+  <%=f.label :scientific_name %>
+  <%=f.text_field :scientific_name %><br />
+  <%=f.label :planting_season %>
+  <%=f.select :planting_season, ['Summer', 'Winter'] %><br />
+  <%=f.label :description %>
+  <%=f.text_area :description %><br />
+  <%=f.label :quantity %>
+  <%=f.number_field :quantity %><br />
+  <%=f.submit %>
+<% end %>

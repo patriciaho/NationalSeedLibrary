@@ -1,5 +1,6 @@
 NationalSeedLibrary::Application.routes.draw do
   resources :libraries
+  resources :seeds
 
   get 'landings/index'
 
