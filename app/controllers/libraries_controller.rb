@@ -1,6 +1,10 @@
 class LibrariesController < ApplicationController
   def index
-    @libraries = Library.all
+    if params[:search].present?
+      @libraries = Library.near(params[:search], 50, :order_by => :distance)
+    else
+      @libraries = Library.all
+    end
     @hash = Gmaps4rails.build_markers(@libraries) do |library, marker|
       marker.lat library.latitude
       marker.lng library.longitude

@@ -8,7 +8,23 @@
     <%= link_to library.name, library_path(library) %><br />
   <% end %>
   <%= link_to 'Add New', new_library_path %>
+
+<!--   Nearby seed libraries:
+  <%# for library in @libraries[0].nearbys(500) %>
+    <p><%#= library.address %> <%#= library.distance.round(2) %> miles
+  <%# end %>
+ -->
+<%= form_tag libraries_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+<% end %>
+
 </div>
+
+
+
 
 <div class="col-md-9">
   <div id="map-canvas"></div>
