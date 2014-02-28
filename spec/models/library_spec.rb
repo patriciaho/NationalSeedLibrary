@@ -15,8 +15,8 @@ describe Library do
   describe 'geocoder gem' do
     it 'returns latitude and longitude from an address' do
       lib = Library.create(@valid_attributes.merge(address: '1600 Pennsylvania Ave NW Washington, DC 20500'))
-      expect(lib.latitude).to eq 38.8953003
-      expect(lib.longitude).to eq -77.0328011
+      expect(lib.latitude).to eq 38.8978378
+      expect(lib.longitude).to eq -77.0365123
     end
   end
 
