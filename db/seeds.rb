@@ -8,7 +8,7 @@
 
 Library.destroy_all
 
-libraries = Library.create([{ name: 'SLOLA', address: '13000 Venice Blvd., 90066' },
+libraries = Library.create([{ name: 'SLOLA', address: '13000 Venice Blvd., Los Angeles, CA 90066' },
                             { name: 'Petaluma Seed Bank', address: '199 Petaluma Blvd., North Petaluma, CA 94952'},
                             { name: 'Baker Creek Heirloom Seeds', address: '2278 Baker Creek Road Mansfield, MO 65704'},
                             { name: 'Bountiful Gardens', address: '18001 Shafer Ranch Road, Willits, CA 95490'},

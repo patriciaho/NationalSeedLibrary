@@ -10,61 +10,45 @@
   </div>
   <div class="8">
     <%= form_tag libraries_path, :method => :get do %>
-        <%= text_field_tag :search, params[:search], :class => "form-control search_box" %>
+        <%= text_field_tag :search, params[:search], :placeholder => "Your current address, city, state or zip", :class => "form-control search_box" %>
         <% if params[:search] %>
           <% @location = params[:search] %>
         <% else %>
           <% @location = "goofy" %>
         <% end %>
-        <%= submit_tag "Search Near", :class => "btn btn-success search_near_button", :name => nil %>
+        <%= submit_tag "Search Nearby", :class => "btn btn-success search_near_button", :name => nil %>
     <% end %>
   </div>
 </div>
 
-<div>
-  <div id="map-canvas"></div>
-</div>
+<div class="bottom_container">
+  <div>
+    <div id="map-canvas"></div>
+  </div>
 
-<div class="col-md-6 library_list">
-  <% @libraries.each do |library| %>
-    <%= link_to library.name, library_path(library) %><br />
-    <%= library.address %>
-    <br />
-    <% if @location !="goofy" && @location != '' %>
-      <em><%= library.distance_from(@location).round(2) %> miles</em>
+  <div class="library_list">
+    <% @libraries.each do |library| %>
+      <%= link_to library.name, library_path(library) %><br />
+      <%= library.address %>
+      <br />
+      <% if @location !="goofy" && !library.distance_from(@location).round(2).nan? %>
+        <div class="distance"><em><%= library.distance_from(@location).round(2) %> miles away</em></div>
+        <br />
+      <% end %>
+      <br />
     <% end %>
-    <br />
-    <br />
-  <% end %>
-  <%= link_to 'Add New', new_library_path, :class => "btn btn-success" %>
+    <%= link_to 'Add New', new_library_path, :class => "btn btn-success" %>
+  </div>
 </div>
-<!--   Nearby seed libraries:
-  <%# for library in @libraries[0].nearbys(500) %>
-    <p><%#= library.address %> <%#= library.distance.round(2) %> miles
-  <%# end %>
- -->
-
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: { zoom: 10, provider_key: "AIzaSyAb6ElpayvwAIdNY3QljaH1zHlahlSCJDI" }, internal: {id: 'map-canvas'}}, function(){
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    // markers = handler.addMarkers([
-    //   {
-    //     lat: 0,
-    //     lng: 0,
-        // picture: {
-        //   "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-        //   "width":  36,
-        //   "height": 36
-        // },
-        // "infowindow": "Good morning!"
-    //   }
-    // ]);
-    // handler.map.centerOn(markers[0]);
     
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
+    if (<%= @libraries.count %> == 1) {handler.getMap().setZoom(13)};
+    
   });
 </script>
-

@@ -3,18 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 h1 {
+  margin-top: 2.5%;
   font-size: 200%;
   color: #444;
 }
 
 .library_list {
   font-size: 120%;
-  padding-left: 80px;
+  padding: 20px;
+  float: left;
+  width: 23.5%;
+  background-color: #444;
+  color: #999;
+  margin-left: 10px;
+  height: 500px;
+  overflow: scroll;
 
   a {
-    color: #444;
+    color: white;
     
   }
+}
+
+.distance {
+  font-size: 85%;
 }
 
 .search_bar_container {
@@ -41,4 +53,23 @@ h1 {
   float: left;
   margin-left: 10px;
 }
+
+.bottom_container {
+  margin: 0 auto;
+  width: 90%;
+  height: 600px;
+}
+
+#map-canvas {
+  height: 500px;
+  width: 75%;
+  margin: 0 auto;
+  float: left;
+}
+
+
+
+
+
+
 
