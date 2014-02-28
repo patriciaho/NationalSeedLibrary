@@ -3,25 +3,53 @@
 </head>
 
 <html>
+<header>
+		<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">About NPSL</a>
+      <a class="navbar-brand" href="#">Find A Library</a>
+      <a class="navbar-brand" href="#">Find Seeds</a>
+      <a class="navbar-brand" href="#">Contact Us</a>
+      <div class="navbar-login">Member Login</div>
+    </div>
+  	<!--<nav class="navbar navbar-default" role="navigation">
+	  	<div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Member Login</a>
+	      <a class="navbar-brand" href="#">About NPSL</a>
+	      <a class="navbar-brand" href="#">Find A Library Near You</a>
+	      <a class="navbar-brand" href="#">Find Seeds</a>
+	      <a class="navbar-brand" href="#">Contact Us</a>
+	     </div>-->
+</header>
 <body>
-	<div class="banner">
-		<h1>National Public Seed Library</h1>
+	<div class="banner_title">National Public Seed Library</div>
 	</div>
 	<div class="home_div">
 		<div class="left_home">
 			<div class="find_libraries font-effect-3d-float">
-				<%= link_to 'Find Library', libraries_path %>
+				<%= link_to 'Find Library', libraries_path, :class => "find_libraries" %>
 			</div>
 		</div>
 
 		<div class="">
 			<div class="find_seeds font-effect-3d-float">
-				<%= link_to 'Find Seeds', seeds_path %>
+				<%= link_to 'Find Seeds', seeds_path, :class => "find_seeds" %>
 			</div>
-		</div>
 
 		<div class="circle">
 		</div>
+
+		</div>
+
 		</div>
 
 		<div class="footer">

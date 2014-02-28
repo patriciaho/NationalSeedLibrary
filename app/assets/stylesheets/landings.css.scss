@@ -1,34 +1,41 @@
 @import 'bootstrap';
-@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One|Snippet);
 
 body
 {
-    // background: url('LightGrey-linen.png');
-    // background-size: cover;
-    background-color: #eee;
+background: url('LightGrey-linen.png');
+background-size: cover;
 }
-
-.banner {
-	display: block-inline;
-	height: 140px;
-  border-bottom: 3px solid green;
-};
 
 h1 { 
   font-family: 'Julius Sans One', sans-serif;
   text-align: center;     
-	color: white;
-	font-size: 110px;
+  color: white;
+  font-size: 110px;
 };
 
 h3 {
     margin: 0 auto;
 };
 
-footer {
-    height: 100px;
-    width: 100px;
+.navbar-default .navbar-brand {
+    font-family: 'Julius Sans One', sans-serif;
     color: green;
+};
+
+.navbar-login{
+    float: right;
+    font-family: 'Snippet', sans-serif;
+};
+
+.banner_title {
+  display: block-inline;
+  height: 120px;
+  font-family: 'Julius Sans One', sans-serif;
+  text-align: center;     
+  color: white;
+  font-size: 110px;
+  /*border-bottom: 3px solid green;*/
 };
 
 .home_div {
@@ -41,20 +48,25 @@ footer {
     text-align: center;
 };
 
+.img-responsive {  
+  display: block;  
+  height: auto;  
+  max-width: 100%;  
+} 
+
 .circle {
     /*position: relative;*/
     /*clear: all;*/
-    
-    margin: 50px auto;
-    height: 650px;
-    width: 650px;
+    margin: 10px auto;
+    height: 600px;
+    width: 600px;
     bottom: 0;
-    padding: 20px;
+    padding: 15px;
     font-weight: bold;
     font-size: 32px;
-    border: 1px solid green;
+    border: 3px solid green;
     color: hsl(3, 95%, 50%);
-    background: url('NPSL-Logo.png');
+    /*background: url('NPSL-Logo.png');*/
     background-position: center;
      -moz-border-radius: 310px;
      -webkit-border-radius: 310px;
@@ -87,9 +99,8 @@ footer {
     border: 2px solid blue;*/
 };
 
-.footer {
-    height: 100px;
+.navbar-header {   
+    float: right;
     width: 100%;
-    margin-bottom: 0px;
-    background: green;
+    color: green;
 };
