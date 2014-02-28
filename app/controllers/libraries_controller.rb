@@ -1,7 +1,7 @@
 class LibrariesController < ApplicationController
   def index
     if params[:search].present?
-      @libraries = Library.near(params[:search], 50, :order_by => :distance)
+      @libraries = Library.near(params[:search], 200, :order_by => :distance)
     else
       @libraries = Library.all
     end

@@ -1,3 +1,44 @@
 // Place all the styles related to the libraries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  font-size: 200%;
+  color: #444;
+}
+
+.library_list {
+  font-size: 120%;
+  padding-left: 80px;
+
+  a {
+    color: #444;
+    
+  }
+}
+
+.search_bar_container {
+  margin: 40px auto 35px auto;
+  width: 90%;
+  height: 50px;
+  padding: 0 10% 0 10%;
+}
+
+.search_text {
+  float: left;
+  font-size: 120%;
+  margin-right: 10px;
+  line-height: 200%;
+  color: #444;
+}
+
+.search_box {
+  float: left;
+  width: 70%;
+}
+
+.search_near_button {
+  float: left;
+  margin-left: 10px;
+}
+
