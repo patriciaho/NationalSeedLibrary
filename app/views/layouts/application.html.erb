@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%= current_user ? "Hi, " + current_user.username : "Hi, stranger! " %>
+<%= current_user ? (link_to "Log Out!", auths_path, method: :delete) : (link_to "Login!", new_auth_path) %>
 <%= yield %>
 
 </body>
