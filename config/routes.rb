@@ -1,10 +1,15 @@
 NationalSeedLibrary::Application.routes.draw do
   resources :libraries
-  resources :seeds
+  resources :seeds  
+  resources :users, only:[:index, :new, :create]
+  resources :auths, only:[:new, :create]
 
   get 'landings/index'
 
+  delete "auths" => "auths#destroy"
+
   root 'landings#index'
+
   # get "libraries/index"
   # get "libraries/new"
   # get "libraries/create"
