@@ -1,6 +1,7 @@
 class SeedsController < ApplicationController
   def index
-    @seeds = Seed.all
+    @seeds = Seed.search(params[:search])
+
   end
 
   def create
@@ -17,9 +18,14 @@ class SeedsController < ApplicationController
     @seed = Seed.new
   end
 
+  def show
+    @seed = Seed.find(params[:id])
+  end
+
+
   private
 
   def seed_params
-    params.require(:seed).permit(:common_name, :scientific_name, :planting_season, :description, :quantity)
+    params.require(:seed).permit(:common_name, :scientific_name, :planting_season, :description, :quantity, :photo)
   end
 end

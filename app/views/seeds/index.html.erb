@@ -1,5 +1,33 @@
-<h1>Seeds Index</h1>
+<h1>Find Seeds</h1>
 
-<% @seeds.each do |seed| %>
-  <%= seed.common_name %>, <%= seed.scientific_name %><br /> 
-<% end %>
+<div class="search_bar_container">
+  <div class="search_text">
+    Find by seed name:
+  </div>
+  <div>
+    <%= form_tag seeds_path, :method => :get do %>
+        <%= text_field_tag :search, params[:search], :placeholder => "E.g., Tomato, solanum lycopersicum", :class => "form-control search_box seeds", :autofocus => true %>
+        <%= submit_tag "Search", :class => "btn btn-success search_button", :name => nil %>
+    <% end %>
+  </div>
+</div>
+
+<div class="seed_container">
+
+  <% @seeds.each do |seed| %>
+    <%= link_to seed_path(seed) do %>
+      <div class="col-md-3 seedpacket">
+        <img src="<%= asset_path('Tomato.jpg') %>">
+        <hr>
+        <div class="common_name"><%= seed.common_name %></div>
+        <div class="scientific_name"><%= seed.scientific_name %></div>
+        <div class="descrip"><%= seed.description %></div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
+<div class="link_home">
+  <%= link_to 'Home', landings_path %>
+</div>

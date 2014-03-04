@@ -4,7 +4,7 @@ NationalSeedLibrary::Application.routes.draw do
   resources :users, only:[:index, :new, :create]
   resources :auths, only:[:new, :create]
 
-  get 'landings/index'
+  get 'landings/index' => 'landings#index', as: 'landings'
 
   delete "auths" => "auths#destroy"
 

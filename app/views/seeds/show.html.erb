@@ -1,0 +1,14 @@
+<h2><%= @seed.common_name %></h2>
+<br />
+<img src="<%= asset_path('Tomato.jpg') %>" width="25%">
+<br />
+<p><%= @seed.scientific_name %></p>
+<p><%= @seed.planting_season %></p>
+<p><%= @seed.quantity %></p>
+<p><%= @seed.description %></p>
+
+<%= link_to 'Edit', edit_seed_path %>
+
+<br />
+
+<%= link_to 'Back', seeds_path %>
