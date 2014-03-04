@@ -1,13 +1,16 @@
 <h2><%= @seed.common_name %></h2>
 <br />
-<img src="<%= asset_path('Tomato.jpg') %>" width="25%">
+<%= image_tag @seed.harvest_photo.url(:cropped) %>
+<%= image_tag @seed.plant_photo.url %>
+<%= image_tag @seed.seed_photo.url %>
 <br />
 <p><%= @seed.scientific_name %></p>
 <p><%= @seed.planting_season %></p>
 <p><%= @seed.quantity %></p>
 <p><%= @seed.description %></p>
 
-<%= link_to 'Edit', edit_seed_path %>
+<%= link_to 'Edit', edit_seed_path(@seed), method: :get %>
+<%= link_to 'Delete', @seed, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <br />
 

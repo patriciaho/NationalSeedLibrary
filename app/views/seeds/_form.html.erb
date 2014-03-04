@@ -1,4 +1,4 @@
-<%= form_for @seed do |f| %>
+<%= form_for @seed, :url => seeds_path, :html => { :multipart => true } do |f| %>
   <%=f.label :common_name %>
   <%=f.text_field :common_name %><br />
   <%=f.label :scientific_name %>
@@ -9,5 +9,11 @@
   <%=f.text_area :description %><br />
   <%=f.label :quantity %>
   <%=f.number_field :quantity %><br />
+  <%=f.label :harvest_photo %>
+  <%= f.file_field :harvest_photo %>
+  <%=f.label :plant_photo %>
+  <%= f.file_field :plant_photo %>
+  <%=f.label :seed_photo %>
+  <%= f.file_field :seed_photo %>
   <%=f.submit %>
 <% end %>

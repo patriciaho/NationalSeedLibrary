@@ -9,6 +9,10 @@ gem 'bcrypt'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Use paperclip to upload images and papercrop to crop images
+gem "paperclip", "~> 4.1"
+gem 'papercrop'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.0'
