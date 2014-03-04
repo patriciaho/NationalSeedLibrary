@@ -9,14 +9,16 @@ describe Library do
   end
 
   describe 'relation to seeds' do
-    pending 'checking relationship to seeds'
+    it 'returns foreign key for seed id' 
+      pending 'check Library record for seeds'
+    end
   end
 
   describe 'geocoder gem' do
     it 'returns latitude and longitude from an address' do
       lib = Library.create(@valid_attributes.merge(address: '1600 Pennsylvania Ave NW Washington, DC 20500'))
-      expect(lib.latitude).to eq 38.8953003
-      expect(lib.longitude).to eq -77.0328011
+      expect(lib.latitude.round(2)).to eq 38.9
+      expect(lib.longitude.round(2)).to eq -77.04
     end
   end
 

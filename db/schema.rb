@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140228224539) do
     t.string   "scientific_name"
     t.string   "planting_season"
     t.text     "description"
-    t.integer  "quantity" 
+    t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
