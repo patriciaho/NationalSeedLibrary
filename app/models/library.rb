@@ -1,5 +1,8 @@
 class Library < ActiveRecord::Base
-  has_and_belongs_to_many :seeds
+  has_many :collections
+  has_many :seeds, through: :collections
+
+  accepts_nested_attributes_for :seeds
 
   geocoded_by :address
   after_validation :geocode 

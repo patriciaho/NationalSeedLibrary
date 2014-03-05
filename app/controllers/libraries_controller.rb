@@ -34,8 +34,9 @@ class LibrariesController < ApplicationController
 
   def update
     @library = Library.find(params[:id])
+    @seeds = @library.seeds
     if @library.update(library_params)
-      redirect_to action: 'index'
+      redirect_to action: 'show'
       flash[:notice] = "Library has been updated"
     else
       render action: 'edit'
@@ -49,10 +50,9 @@ class LibrariesController < ApplicationController
   def destroy
   end
 
-
   private
 
   def library_params
-    params.require(:library).permit(:name, :address)
+    params.require(:library).permit(:name, :address, :collections, :seeds, :seed_attributes, :collection_ids => [], :seed_ids => [])
   end
 end

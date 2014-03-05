@@ -1,5 +1,9 @@
 <h1><%= @library.name %></h1>
 
+<% @library.seeds.each do |seed| %>
+  <p><%= seed.common_name %></p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_library_path %>
 

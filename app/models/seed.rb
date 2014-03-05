@@ -1,5 +1,7 @@
 class Seed < ActiveRecord::Base
-  has_and_belongs_to_many :libraries
+  has_many :collections
+  has_many :libraries, through: :collections
+
   has_attached_file :harvest_photo, :styles => { :cropped => "", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   has_attached_file :plant_photo, :styles => { :cropped => "", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   has_attached_file :seed_photo, :styles => { :cropped => "", :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"

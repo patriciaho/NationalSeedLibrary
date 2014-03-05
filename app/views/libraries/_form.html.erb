@@ -3,6 +3,10 @@
   <%= f.text_field :name %><br />
   <%= f.label :address %><br />
   <%= f.text_field :address %><br />
+    <% Seed.all.each do |seed| %>
+      <%= check_box_tag 'library[seed_ids][]', seed.id, @library.seeds.include?(seed) %>
+      <%= seed.common_name %>, <i><%= seed.scientific_name %></i><br>
+    <% end %>
   <%= f.submit %>
   <%= button_tag 'Reset', type: :reset %>
 <% end %>
