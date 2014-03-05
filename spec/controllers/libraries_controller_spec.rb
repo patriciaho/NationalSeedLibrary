@@ -26,12 +26,16 @@ describe LibrariesController do
     end
   end
 
-  describe "GET 'create'" do
-    it "returns http success" do
-      Library.stub(:new).and_return("A new Library")
-      get 'create'
-      response.should be_success
+  describe "POST 'create'" do
+    describe 'parameters are properly set' do 
+      it 'sets the library with the named parameters' do
+        Library.any_instance.stub(:valid?).and_return(true)
+        post 'create', {library: {name: 'My Fancy Seed Library', address: '1520 2nd Street, Santa Monica CA'}}
+        expect(assigns(:library).name).to eq 'My Fancy Seed Library'
+        expect(assigns(:library).address).to eq '1520 2nd Street, Santa Monica CA'
+      end
     end
+
   end
 
   # describe "GET 'edit'" do
