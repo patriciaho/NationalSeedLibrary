@@ -1,4 +1,6 @@
 NationalSeedLibrary::Application.routes.draw do
+  # get 'libraries/:id/search' => 'libraries#search', as 'library_seeds_search'
+
   resources :libraries
   resources :seeds  
   resources :users, only:[:index, :new, :create]

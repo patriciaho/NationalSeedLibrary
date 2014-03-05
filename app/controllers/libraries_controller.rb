@@ -30,6 +30,11 @@ class LibrariesController < ApplicationController
 
   def edit
     @library = Library.find(params[:id])
+    if !params[:search] || params[:search].strip.blank?
+      @seeds = []
+    else
+      @seeds = Seed.search(params[:search])
+    end
   end
 
   def update
@@ -49,6 +54,7 @@ class LibrariesController < ApplicationController
 
   def destroy
   end
+
 
   private
 
