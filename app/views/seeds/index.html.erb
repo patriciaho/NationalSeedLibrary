@@ -16,12 +16,18 @@
 
   <% @seeds.each do |seed| %>
     <%= link_to seed_path(seed) do %>
-      <div class="col-md-3 seedpacket">
-        <%= image_tag seed.harvest_photo.url(:cropped) %>
+      <div class="seedpacket">
+        <% if seed.harvest_photo_file_name == "Tomato2.jpg" %>
+          <img src="<%= asset_path('Tomato2.jpg') %>" class='cropped_photo' >
+        <% else %>
+          <%= image_tag seed.harvest_photo.url(:cropped), :class => 'cropped_photo' %>
+        <% end %>
         <hr>
-        <div class="common_name"><%= seed.common_name %></div>
-        <div class="scientific_name"><%= seed.scientific_name %></div>
-        <div class="descrip"><%= seed.description %></div>
+        <div class="seed_bottom">
+          <div class="common_name"><%= seed.common_name %></div>
+          <div class="scientific_name"><%= seed.scientific_name %></div>
+          <div class="descrip"><%= seed.description %></div>
+        </div>
       </div>
     <% end %>
   <% end %>

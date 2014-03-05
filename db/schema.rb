@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304061435) do
+ActiveRecord::Schema.define(version: 20140305071116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "collections", force: true do |t|
+    t.integer  "library_id"
+    t.integer  "seed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "collections", ["library_id"], name: "index_collections_on_library_id", using: :btree
+  add_index "collections", ["seed_id"], name: "index_collections_on_seed_id", using: :btree
 
   create_table "libraries", force: true do |t|
     t.string   "name"
@@ -23,11 +33,6 @@ ActiveRecord::Schema.define(version: 20140304061435) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-  end
-
-  create_table "libraries_seeds", id: false, force: true do |t|
-    t.integer "library_id", null: false
-    t.integer "seed_id",    null: false
   end
 
   create_table "seeds", force: true do |t|
