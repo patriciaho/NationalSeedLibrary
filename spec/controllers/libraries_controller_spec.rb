@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe LibrariesController do
 
+  let (:library) { FactoryGirl.build :library }
+  subject { library }
+
   # describe "GET 'index'" do
   #   it "returns http success" do
   #     Library.stub(:all).and_return("An array of libraries")
@@ -16,6 +19,8 @@ describe LibrariesController do
   #     Gmaps4rails.build_markers()
   #   end
   # end
+
+
 
   describe "GET 'new'" do
     it "returns http success" do
@@ -33,6 +38,13 @@ describe LibrariesController do
         post 'create', {library: {name: 'My Fancy Seed Library', address: '1520 2nd Street, Santa Monica CA'}}
         expect(assigns(:library).name).to eq 'My Fancy Seed Library'
         expect(assigns(:library).address).to eq '1520 2nd Street, Santa Monica CA'
+      end
+    end
+
+    context ' library is valid' do
+      it 'redirects to libraries_path' do
+        Library.any_instance.stub(valid?).and_return(true)
+        post 'create', {library: {} }
       end
     end
 
