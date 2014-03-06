@@ -2,17 +2,39 @@ require 'spec_helper'
 
 describe User do
 
-  before :each do
-    @valid_attributes = { 
-      username: 'princess'
-    }
+  let(:user) { FactoryGirl.build :user }
+  subject{ user }
+
+  describe 'validations' do
+    context 'when attributes are valid' do
+      it { should be_valid }
+    end
+
+    context 'user is not unique' do
+      it 'does not persist if user is not unique' do
+        user.save
+        user2 = FactoryGirl.build :user, username: user.username
+        user2.valid?
+        expect(user2.errors[:username]).to include 'has already been taken'
+      end
+    end
   end
 
-  context 'user is unique' do
-    it 'returns error if username is not unique' do
-      user1 = User.create(@valid_attributes.merge(username: 'princess'))
-      user2 = User.create(@valid_attributes.merge(username: 'princess'))
-      expect(user2.valid?).to eq false
+  describe 'authentication' do
+    context 'user is authenticated' do
+      it 'is authenticated' do
+        user.save
+        user.password = '123'
+        expect(user.authenticate?(user.password)).to eq true
+      end
+    end
+
+    context 'user is NOT authenticated' do
+      it 'is NOT authenticated' do
+        user.save
+        user.password = '987'
+        expect(user.authenticate?(user.password)).to eq false
+      end
     end
   end
 

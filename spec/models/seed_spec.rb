@@ -39,10 +39,6 @@ describe Seed do
       end
     end
 
-
-
   end # describe 'validation'
-
-
   
 end # describe Seed do

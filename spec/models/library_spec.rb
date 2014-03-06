@@ -32,9 +32,15 @@ describe Library do
   end
 
   describe 'geocoder gem' do
-    it 'returns latitude and longitude from an address' do
+    it 'returns latitude from an address' do
       library.save
       expect(library.latitude.round(2)).to eq 38.9
+    end
+  end
+
+    describe 'geocoder gem' do
+    it 'returns longitude from an address' do
+      library.save
       expect(library.longitude.round(2)).to eq -77.04
     end
   end

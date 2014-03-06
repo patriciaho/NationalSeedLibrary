@@ -37,11 +37,19 @@ describe LibrariesController do
         Library.any_instance.stub(:valid?).and_return(true)
         post 'create', {library: {name: 'My Fancy Seed Library', address: '1520 2nd Street, Santa Monica CA'}}
         expect(assigns(:library).name).to eq 'My Fancy Seed Library'
+      end
+    end
+
+    describe 'parameters are properly set' do 
+      it 'sets the library with the named parameters' do
+        Library.any_instance.stub(:valid?).and_return(true)
+        post 'create', {library: {name: 'My Fancy Seed Library', address: '1520 2nd Street, Santa Monica CA'}}
         expect(assigns(:library).address).to eq '1520 2nd Street, Santa Monica CA'
       end
     end
 
-    context ' library is valid' do
+
+    context 'library is valid' do
       it 'redirects to libraries_path' do
         Library.any_instance.stub(valid?).and_return(true)
         post 'create', {library: {} }
