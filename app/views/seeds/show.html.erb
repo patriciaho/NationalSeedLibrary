@@ -1,17 +1,30 @@
-<h2><%= @seed.common_name %></h2>
-<br />
-<%= image_tag @seed.harvest_photo.url(:cropped) %>
-<%= image_tag @seed.plant_photo.url %>
-<%= image_tag @seed.seed_photo.url %>
-<br />
-<p><%= @seed.scientific_name %></p>
-<p><%= @seed.planting_season %></p>
-<p><%= @seed.quantity %></p>
-<p><%= @seed.description %></p>
 
-<%= link_to 'Edit', edit_seed_path(@seed), method: :get %>
-<%= link_to 'Delete', @seed, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<br />
+<!-- <h2><%#= @seed.common_name %></h2> -->
+<div class="show_container">
+  <h2></h2>
+  <em><p class="seed_sci"></p></em>
+  <% if @seed.harvest_photo_file_name == "Tomato2.jpg" %>
+    <img src="<%= asset_path('Tomato2.jpg') %>" class='cropped_photo' >
+    <% elsif @seed.harvest_photo_file_name == "strawberry.jpg" %>
+      <img src="<%= asset_path('strawberry.jpg') %>" class='cropped_photo' >
+      <% elsif @seed.harvest_photo_file_name == "grapes.jpg" %>
+        <img src="<%= asset_path('grapes.jpg') %>" class='cropped_photo' >
+  <% else %>
+    <%= image_tag @seed.harvest_photo.url(:cropped) %>
+  <% end %>
+  <%#= image_tag @seed.plant_photo.url %>
+  <%#= image_tag @seed.seed_photo.url %>
+  <br />
+  <strong>Planting season: </strong><span class="seed_season"></span><br/>
+  <strong>Quantity: </strong><span class="seed_quantity"></span><br/>
+  <strong>Description: </strong><p class="seed_descrip"></p><br/>
+  <br/>
 
-<%= link_to 'Back', seeds_path %>
+  <%= link_to 'Edit', edit_seed_path(@seed), method: :get %>
+  <%= link_to 'Delete', @seed, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+  <br />
+
+  <%= link_to 'Back', seeds_path %>
+</div>

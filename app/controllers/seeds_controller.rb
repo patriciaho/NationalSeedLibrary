@@ -2,6 +2,12 @@ class SeedsController < ApplicationController
   def index
     @seeds = Seed.search(params[:search])
 
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @seeds.to_json(only: [:common_name, :scientific_name, :planting_season, :description, :quantity, :harvest_photo_file_name])}
+    end
+
+
   end
 
   def new
@@ -10,6 +16,8 @@ class SeedsController < ApplicationController
 
   def show
     @seed = Seed.find(params[:id])
+
+
   end
 
   def edit

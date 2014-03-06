@@ -7,9 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="nav_bar">
+  <div class="NSL_name">
+    <%= link_to 'National Public Seed Library', landings_path %>
+  </div>
+  <div class="right_nav">
+    <ul>
+      <li>
+        <%= current_user ? (link_to "Log Out", auths_path, method: :delete) : (link_to "Login", new_auth_path) %>
+      </li>
+      <li><%= link_to 'Find Libraries', libraries_path, 'data-no-turbolink' => true %></li>
+      <li><%= link_to 'Find Seeds', seeds_path %></li>
+  </div>
+</div>
 
-<%= current_user ? "Hi, " + current_user.username : "Hi, stranger! " %>
-<%= current_user ? (link_to "Log Out!", auths_path, method: :delete) : (link_to "Login!", new_auth_path) %>
+
 <%= yield %>
 
 </body>

@@ -41,6 +41,11 @@
   border-radius: 5px;
   float: left;
   color: #444;
+  background-color: #a98054;
+
+  &:hover {
+    background-color: lighten(#a98054, 8%);
+  }
 
   img {
     width: 245px;
@@ -79,9 +84,23 @@ hr {
   height: 165px;
 }
 
+.show_container {
+  margin-left: 5%;
+  margin-top: 3%;
 
+  img {
+    margin: 2% 0 2% 0;
+  }
+}
 
+h2 {
 
+}
+
+.seed_sci {
+  font-size: 125%;
+  margin-top: -0.5%;
+}
 
 
 

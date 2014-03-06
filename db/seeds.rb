@@ -22,8 +22,8 @@ libraries = Library.create([{ name: 'SLOLA', address: '13000 Venice Blvd., Los A
                             ])
 
 seeds = Seed.create([{ common_name: 'Tomato', scientific_name: 'Solanum lycopersicum', planting_season: 'Spring', description: 'The tomato is the edible, often red fruit/berry of the nightshade Solanum lycopersicum, commonly known as a tomato plant. The species originated in the South American Andes and its use as a food originated in Mexico. And they are so yummy, I could eat one every day. What do you think? How about you get some seeds. Like now.', quantity: 236, harvest_photo_file_name: 'Tomato2.jpg' },
-                     { common_name: 'Strawberry', scientific_name: 'Strawberry lycopersicum', planting_season: 'Summer', description: 'Truly delicious and appetizing! And red, and seeded', quantity: 236, harvest_photo_file_name: 'Tomato2.jpg' },
-                     { common_name: 'Grapes', scientific_name: 'Grapes lycopersicum', planting_season: 'Winter', description: 'Grapes are so yummy, and you can make wine with them!', quantity: 236, harvest_photo_file_name: 'Tomato2.jpg' },
+                     { common_name: 'Strawberry', scientific_name: 'Fragaria x ananassa', planting_season: 'Summer', description: 'Truly delicious and appetizing! And red, and seeded', quantity: 236, harvest_photo_file_name: 'strawberry.jpg' },
+                     { common_name: 'Grapes', scientific_name: 'Vitis vinifera', planting_season: 'Winter', description: 'Grapes are so yummy, and you can make wine with them!', quantity: 236, harvest_photo_file_name: 'grapes.jpg' },
                      { common_name: 'Oranges', scientific_name: 'Oranges lycopersicum', planting_season: 'Fall', description: 'If you want juice, there is nothing better than orange juice. So refreshing! And easy to grow.', quantity: 236, harvest_photo_file_name: 'Tomato2.jpg' },
                      { common_name: 'Watermelon', scientific_name: 'Watermelon lycopersicum', planting_season: 'Fall', description: 'Lots of seeds, but you can just spit them out. Also red color.', quantity: 236, harvest_photo_file_name: 'Tomato2.jpg' }
 
