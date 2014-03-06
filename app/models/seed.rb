@@ -9,6 +9,9 @@ class Seed < ActiveRecord::Base
 
   validates_attachment_content_type :harvest_photo, :content_type => /\Aimage\/.*\Z/
   validates :scientific_name, uniqueness: true
+  validates :common_name, presence: true
+  validates :description, presence: true
+  validates :harvest_photo, presence: true
 
   def self.search(search)
     if search
