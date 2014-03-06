@@ -11,6 +11,7 @@ class Seed < ActiveRecord::Base
   validates :scientific_name, uniqueness: true
   validates :common_name, presence: true
   validates :description, presence: true
+  validates :harvest_photo, presence: true
 
   def self.search(search)
     if search
