@@ -1,25 +1,20 @@
-<div>
-  <%= form_tag edit_library_path(@library), :method => :get do %>
-      <%= text_field_tag :search, params[:search], :placeholder => "E.g., Tomato, solanum lycopersicum", :class => "form-control search_box seeds", :autofocus => true %>
-      <%= submit_tag "Search", :class => "btn btn-success search_button", :name => nil %>
-  <% end %>
-</div>
-
-<br>
-
 <%= form_for @library do |f| %>
   <%= f.label :name %><br />
-  <%= f.text_field :name %><br />
+  <%= f.text_field :name, class: "form-control"  %><br />
   <%= f.label :address %><br />
-  <%= f.text_field :address %><br />
+  <%= f.text_field :address, class: "form-control"  %><br />
+  <br />
+  <br />
+  <br />
   <% if @seeds %>
     <% @seeds.each do |seed| %>
       <%= check_box_tag 'library[seed_ids][]', seed.id, @library.seeds.include?(seed) %>
       <%= seed.common_name %>, <i><%= seed.scientific_name %></i><br>
     <% end %>
+    <br>
+    <div>Didn't find the seed you were looking for? <%= link_to 'Add New Seed', new_seed_path, class: "btn btn-success" %></div>
   <% end %>
-  <%= f.submit %>
-  <%= button_tag 'Reset', type: :reset %>
+  <br />
+  <%= f.submit "Update Information", class: "btn btn-success" %>
+  <%= button_tag 'Reset', type: :reset, class: "btn btn-default" %>
 <% end %>
-
-<%= @library.seeds.count %>

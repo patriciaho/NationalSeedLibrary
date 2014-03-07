@@ -20,6 +20,7 @@ class SeedsController < ApplicationController
 
   def edit
     @seed = Seed.find(params[:id])
+    
   end
 
   def create

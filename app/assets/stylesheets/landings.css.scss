@@ -3,15 +3,20 @@
 
 body
 {
-    // background: url('LightGrey-linen.png');
-    // background-size: cover;
+    background: url('LightGrey-linen.png') no-repeat;
+    background-size: cover;
     background-color: #eee;
 }
 
 .banner {
 	display: block-inline;
 	height: 140px;
-  border-bottom: 3px solid green;
+    font-size: 200%;
+    color: white;
+
+    h1 {
+        color: white;
+    }
 };
 
 h1 { 
@@ -22,13 +27,10 @@ h1 {
 };
 
 h3 {
-    margin: 0 auto;
-};
-
-footer {
-    height: 100px;
-    width: 100px;
-    color: green;
+    font-family: 'Julius Sans One', sans-serif;
+    text-align: center;     
+    color: white;
+    font-size: 90px;
 };
 
 .home_div {
@@ -41,13 +43,18 @@ footer {
     text-align: center;
 };
 
+.circle_container {
+    width: 400px;
+    height: 400px;
+    margin: -40px auto 0 auto;
+}
+
 .circle {
     /*position: relative;*/
     /*clear: all;*/
-    
-    margin: 50px auto;
-    height: 650px;
-    width: 650px;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
     bottom: 0;
     padding: 20px;
     font-weight: bold;
@@ -55,7 +62,7 @@ footer {
     border: 1px solid green;
     color: hsl(3, 95%, 50%);
     background: url('NPSL-Logo.png');
-    background-position: center;
+    background-position: center top -240px;
      -moz-border-radius: 310px;
      -webkit-border-radius: 310px;
      font-family: 'Montserrat Alternates' bold; 
@@ -64,27 +71,37 @@ footer {
 .find_libraries {
     float: left;
     text-align: center;
-    margin-left: -25px;
+    margin-left: 0;
     color: white;
-    font-size: 90px; 
-    padding: 2.3em;
-    width: 400px;
+    font-size: 65px; 
+    padding-top: 1.5em;
+    width: 500px;
     height: 200px;
     /*background-color: hsla(131, 59%, 35%, 0.95);*/
     /*border: 2px solid red;*/
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
 };
 
 .find_seeds {
     float: right;     
     text-align: left;
-    margin-right: 5px;
+    margin-right: 35px;
     color: white;
-    font-size: 90px;
-    padding-top: 2.3em;
-    width: 400px;
+    font-size: 65px;
+    padding-top: 1.5em;
+    width: 350px;
     height: 200px;
     /*background-color: hsla(131, 59%, 35%, 0.95);
     border: 2px solid blue;*/
+
+        a {
+        text-decoration: none;
+        color: white;
+    }
 };
 
 .footer {
@@ -93,3 +110,15 @@ footer {
     margin-bottom: 0px;
     background: green;
 };
+
+.mission_statement {
+    width: 75%;
+    height: 400px;
+    margin: 50px auto 0 auto;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 150%;
+    text-align: center;
+    color: white;
+}
+
+

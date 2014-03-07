@@ -1,20 +1,41 @@
-<%= form_for @seed, :url => seed_path, :html => { :multipart => true } do |f| %>
-  <%=f.label :common_name %>
-  <%=f.text_field :common_name %><br />
-  <%=f.label :scientific_name %>
-  <%=f.text_field :scientific_name %><br />
-  <%=f.label :planting_season %>
-  <%=f.select :planting_season, ['Summer', 'Winter'] %><br />
-  <%=f.label :description %>
-  <%=f.text_area :description %><br />
-  <%=f.label :quantity %>
-  <%=f.number_field :quantity %><br />
-  <%=f.label :harvest_photo %>
-  <%= f.cropbox :harvest_photo, :width => 500 %>
-  <%= f.crop_preview :harvest_photo, :width => 150 %>
-  <%=f.label :plant_photo %>
-  <%= f.file_field :plant_photo %>
-  <%=f.label :seed_photo %>
-  <%= f.file_field :seed_photo %>
-  <%=f.submit %>
-<% end %>
+<br/>
+<br/>
+<br/>
+
+<div class="edit_seed_container">
+  <h2>Edit Seed Information</h2>
+  <%= form_for @seed, :url => seed_path, :html => { :multipart => true } do |f| %>
+    <%=f.label :common_name %>
+    <%=f.text_field :common_name %><br />
+    <%=f.label :scientific_name %>
+    <%=f.text_field :scientific_name %><br />
+    <%=f.label :planting_season %>
+    <%=f.select :planting_season, ['Summer', 'Winter'] %><br />
+    <%=f.label :description %>
+    <%=f.text_area :description %><br />
+    <%=f.label :quantity %>
+    <%=f.number_field :quantity %><br />
+    <% if @seed.harvest_photo_file_name == "Tomato2.jpg" %>
+      <br/>
+      <% elsif @seed.harvest_photo_file_name == "strawberry.jpg" %>
+      <br />
+        <% elsif @seed.harvest_photo_file_name == "grapes.jpg" %>
+        <br />
+          <% elsif @seed.harvest_photo_file_name == "orange.jpg" %>
+          <br />
+            <% elsif @seed.harvest_photo_file_name == "watermelon.jpg" %>
+            <br />
+    <% else %>
+      <%=f.label :harvest_photo %>
+      <%= f.cropbox :harvest_photo, :width => 500 %>
+      <br/>
+      <%= f.crop_preview :harvest_photo, :width => 150 %>
+      <%=f.label :plant_photo %>
+      <%= f.file_field :plant_photo %>
+      <%=f.label :seed_photo %>
+      <%= f.file_field :seed_photo %>
+    <% end %>
+    <br/>
+    <%=f.submit %>
+  <% end %>
+</div>

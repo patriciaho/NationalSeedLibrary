@@ -8,6 +8,11 @@ h1 {
   color: #444;
 }
 
+h3 {
+  font-size: 150%;
+  color: #444;
+}
+
 .library_list {
   font-size: 120%;
   padding: 20px;
@@ -67,9 +72,13 @@ h1 {
   float: left;
 }
 
+.add_library {
+  margin-left: 5%;
+}
 
-
-
+.add_lib_textbox {
+  width: 300px;
+}
 
 
 
