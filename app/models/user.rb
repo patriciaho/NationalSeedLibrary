@@ -2,6 +2,7 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   attr_accessor :password
 
+  validates :username, presence: true
   validates :username, uniqueness: true
 
   def authenticate?(password)

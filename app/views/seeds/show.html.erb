@@ -18,13 +18,14 @@
   <br />
   <strong>Planting season: </strong><span class="seed_season"></span><br/>
   <strong>Quantity: </strong><span class="seed_quantity"></span><br/>
-  <strong>Description: </strong><p class="seed_descrip"></p><br/>
-  <br/>
-
-  <%= link_to 'Edit', edit_seed_path(@seed), method: :get %>
-  <%= link_to 'Delete', @seed, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-  <br />
-
+  <strong>Description: </strong><p class="seed_descrip"></p>
+  
+  <% if current_user %>
+    <br/>
+    <%= link_to 'Edit', edit_seed_path(@seed), method: :get %>
+    <%= link_to 'Delete', @seed, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br />
+  <% end %>
+  
   <%= link_to 'Back', seeds_path %>
 </div>
