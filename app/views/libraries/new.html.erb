@@ -1,9 +1,19 @@
-<h1>Libraries#new</h1>
+<br/>
+<br/>
+<h1>Add a Library</h1>
 <% if flash[:error] %>
   <div><%= flash[:error] %></div>
 <% end %>
-
-<%= render partial: 'form' %>
-
-<%= link_to 'Back', libraries_path %>
-
+<br/>
+<div class="add_library">
+  <%= form_for @library do |f| %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :class => 'add_lib_textbox' %><br />
+    <%= f.label :address %><br />
+    <%= f.text_field :address, :class => 'add_lib_textbox' %><br />
+    <br/>
+    <%= f.submit %>
+  <% end %>
+  <br/>
+  <%= link_to 'Back', libraries_path, 'data-no-turbolink' => true %>
+</div>

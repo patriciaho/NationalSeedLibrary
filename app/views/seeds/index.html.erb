@@ -1,4 +1,6 @@
-<h1>Find Seeds</h1>
+<br/>
+<br/>
+<h1 class="find_seeds_title">Find Seeds</h1>
 
 <div class="search_bar_container">
   <div class="search_text">
@@ -23,6 +25,10 @@
             <img src="<%= asset_path('strawberry.jpg') %>" class='cropped_photo' >
             <% elsif seed.harvest_photo_file_name == "grapes.jpg" %>
               <img src="<%= asset_path('grapes.jpg') %>" class='cropped_photo' >
+              <% elsif seed.harvest_photo_file_name == "orange.jpg" %>
+                <img src="<%= asset_path('orange.jpg') %>" class='cropped_photo' >
+                <% elsif seed.harvest_photo_file_name == "watermelon.jpg" %>
+                  <img src="<%= asset_path('watermelon.jpg') %>" class='cropped_photo' >
         <% else %>
           <%= image_tag seed.harvest_photo.url(:cropped), :class => 'cropped_photo' %>
         <% end %>
