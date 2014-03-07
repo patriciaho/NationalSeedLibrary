@@ -26,12 +26,16 @@
             <% elsif @seed.harvest_photo_file_name == "watermelon.jpg" %>
             <br />
     <% else %>
+      <br/>
       <%=f.label :harvest_photo %>
       <%= f.cropbox :harvest_photo, :width => 500 %>
       <br/>
       <%= f.crop_preview :harvest_photo, :width => 150 %>
+      <p>Choose a new default photo <%= f.file_field :harvest_photo %></p>  
+      <br/>
       <%=f.label :plant_photo %>
       <%= f.file_field :plant_photo %>
+      <br/>
       <%=f.label :seed_photo %>
       <%= f.file_field :seed_photo %>
     <% end %>

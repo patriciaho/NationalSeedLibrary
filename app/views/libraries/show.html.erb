@@ -34,7 +34,7 @@
 
 <div>
 <% if current_user %>
-<%= link_to 'Account Settings', edit_library_path, class: "btn btn-default" %>
+<%= link_to 'Account Settings', edit_library_path(@library), class: "btn btn-default" %>
   <br />
 <% end %>
 <%= link_to 'Back', libraries_path, class: "btn btn-default" %>

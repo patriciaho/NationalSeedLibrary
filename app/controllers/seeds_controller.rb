@@ -1,5 +1,5 @@
 class SeedsController < ApplicationController
-  around_action :verify_logged_in, only: [:new, :edit, :create, :update, :destroy]
+  before_action :verify_logged_in, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @seeds = Seed.search(params[:search])
