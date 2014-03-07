@@ -15,9 +15,11 @@ end
         session[:user_id] = user.id 
         redirect_to root_path
       else
-        flash[:error] = "You are not logged in!"
         redirect_to new_auth_path
       end
+    else
+      flash[:error] = "Your username or password is incorrect. Please try again!"
+      redirect_to new_auth_path
     end
   end
 

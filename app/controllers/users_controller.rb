@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to root_path
     else
-        render 'new'
+        redirect_to new_user_path
     end
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def verify_not_logged_in
     if current_user
-      # flash[:error] = "You must log out first!"
+      flash[:error] = "You must log out first!"
       redirect_to root_path
     end
   end

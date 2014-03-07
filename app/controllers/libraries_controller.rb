@@ -1,4 +1,6 @@
 class LibrariesController < ApplicationController
+  around_action :verify_logged_in, only: [:new, :edit, :create, :update, :destroy]
+
   def index
     if params[:search].present? && Library.near(params[:search], 200).count > 0
       @libraries = Library.near(params[:search], 200, :order_by => :distance)

@@ -39,7 +39,9 @@
       <% end %>
       <br />
     <% end %>
-    <%= link_to 'Add New', libraries_new_path, :class => "btn btn-success" %>
+    <% if current_user %>
+      <%= link_to 'Add New', libraries_new_path, :class => "btn btn-success" %>
+    <% end %>
   </div>
 </div>
 

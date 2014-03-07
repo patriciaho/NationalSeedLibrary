@@ -1,4 +1,6 @@
 class SeedsController < ApplicationController
+  around_action :verify_logged_in, only: [:new, :edit, :create, :update, :destroy]
+
   def index
     @seeds = Seed.search(params[:search])
 
@@ -6,8 +8,6 @@ class SeedsController < ApplicationController
       format.html {}
       format.json { render json: @seeds.to_json(only: [:common_name, :scientific_name, :planting_season, :description, :quantity, :harvest_photo_file_name])}
     end
-
-
   end
 
   def new
@@ -16,8 +16,6 @@ class SeedsController < ApplicationController
 
   def show
     @seed = Seed.find(params[:id])
-
-
   end
 
   def edit
@@ -50,9 +48,6 @@ class SeedsController < ApplicationController
     @seed.destroy
     redirect_to seeds_url
   end
-
-  
-
 
   private
 
