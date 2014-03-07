@@ -1,6 +1,21 @@
-<h1>Libraries#edit</h1>
+<h1><%= @library.name %></h1>
+<h3>Account Settings</h3>
 
+<div class="col-md-6">
 <%= render partial: 'form' %>
+</div>
+<div class="seed_collection col-md-6">
+  <h3>Current Seed Collection</h3>
+  <h2><%= @library.seeds.count %> Seed Types</h2>
+  <%= render @library.seeds %>
+</div>
+<div class="search_bar col-md-6">
+  <strong>Search NPSL seed catalog to add to your collection</strong>
+  <%= form_tag edit_library_path(@library), :method => :get do %>
+      <%= text_field_tag :search, params[:search], :placeholder => "E.g., Tomato, solanum lycopersicum", :class => "form-control search_box seeds", :autofocus => true %>
+      <%= submit_tag "Search", :class => "btn btn-success search_button", :name => nil %>
+  <% end %>
+</div>
 
-<%= link_to 'Back', libraries_path %>
+
 

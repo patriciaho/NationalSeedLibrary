@@ -41,7 +41,7 @@ class LibrariesController < ApplicationController
     @library = Library.find(params[:id])
     @seeds = @library.seeds
     if @library.update(library_params)
-      redirect_to action: 'show'
+      redirect_to action: 'edit'
       flash[:notice] = "Library has been updated"
     else
       render action: 'edit'

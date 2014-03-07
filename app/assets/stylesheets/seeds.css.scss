@@ -94,7 +94,8 @@ hr {
 }
 
 h2 {
-
+  font-size: 125%;
+  color: #444;
 }
 
 .seed_sci {
@@ -102,10 +103,26 @@ h2 {
   margin-top: -0.5%;
 }
 
+
 .edit_seed_container {
   margin-left: 5%;
   margin-top: 3%;
 }
+
+.search_bar {
+  position: absolute;
+  top: 340px;
+}
+
+.seed_collection {
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding-left: 30px;
+  padding-bottom: 50px
+}
+
+
+
 
 
 
