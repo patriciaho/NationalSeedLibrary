@@ -1,12 +1,38 @@
+<br>
+<br>
 <h1><%= @library.name %></h1>
 
-<% @library.seeds.each do |seed| %>
-  <p><%= seed.common_name %></p>
-<% end %>
+<div class="seed_container">
 
+  <% @library.seeds.each do |seed| %>
+    <%= link_to seed_path(seed), 'data-no-turbolink' => true do %>
+      <div class="seedpacket">
+        <% if seed.harvest_photo_file_name == "Tomato2.jpg" %>
+          <img src="<%= asset_path('Tomato2.jpg') %>" class='cropped_photo' >
+          <% elsif seed.harvest_photo_file_name == "strawberry.jpg" %>
+            <img src="<%= asset_path('strawberry.jpg') %>" class='cropped_photo' >
+            <% elsif seed.harvest_photo_file_name == "grapes.jpg" %>
+              <img src="<%= asset_path('grapes.jpg') %>" class='cropped_photo' >
+              <% elsif seed.harvest_photo_file_name == "orange.jpg" %>
+                <img src="<%= asset_path('orange.jpg') %>" class='cropped_photo' >
+                <% elsif seed.harvest_photo_file_name == "watermelon.jpg" %>
+                  <img src="<%= asset_path('watermelon.jpg') %>" class='cropped_photo' >
+        <% else %>
+          <%= image_tag seed.harvest_photo.url(:cropped), :class => 'cropped_photo' %>
+        <% end %>
+        <hr>
+        <div class="seed_bottom">
+          <div class="common_name"><%= seed.common_name %></div>
+          <div class="scientific_name"><%= seed.scientific_name %></div>
+          <div class="descrip"><%= seed.description %></div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 
-<%= link_to 'Edit', edit_library_path %>
+</div>
 
-<br />
-
-<%= link_to 'Back', libraries_path %>
+<div>
+<%= link_to 'Account Settings', edit_library_path, class: "btn btn-default" %>
+<%= link_to 'Back', libraries_path, class: "btn btn-default" %>
+</div>

@@ -6,15 +6,29 @@
   <br />
   <br />
   <br />
-  <% if @seeds %>
-    <% @seeds.each do |seed| %>
-      <%= check_box_tag 'library[seed_ids][]', seed.id, @library.seeds.include?(seed) %>
-      <%= seed.common_name %>, <i><%= seed.scientific_name %></i><br>
-    <% end %>
-    <br>
-    <div>Didn't find the seed you were looking for? <%= link_to 'Add New Seed', new_seed_path, class: "btn btn-success" %></div>
-  <% end %>
-  <br />
-  <%= f.submit "Update Information", class: "btn btn-success" %>
-  <%= button_tag 'Reset', type: :reset, class: "btn btn-default" %>
+  <div class="seed_collection_list">
+  <p>Checked boxes will be updated to the collection. Scroll for more.</p>
+    <% if @seeds %>
+      <% Seed.all.each do |seed| %>
+        <% seed.libraries.each do |library|%>
+          <% if library.name == @library.name %>
+            <%= check_box_tag 'library[seed_ids][]', seed.id, @library.seeds.include?(seed) %>
+            <%= seed.common_name %>, <i><%= seed.scientific_name %></i><br>
+          <% end %>
+        <% end %>
+      <% end %>
+      <hr>
+      <% @seeds.each do |seed| %>
+        <% if !@library.seeds.include?(seed)  %>
+              <%= check_box_tag 'library[seed_ids][]', seed.id, @library.seeds.include?(seed) %>
+              <%= seed.common_name %>, <i><%= seed.scientific_name %></i><br>
+        <% end %>
+      <% end %>
+      <br>
+      <div>Didn't find the seed you were looking for? <%= link_to 'Add New Seed', new_seed_path, class: "btn btn-success" %></div>
+    <% end %> 
+    <br />
+  </div>
+    <%= f.submit "Update Information", class: "btn btn-success" %>
+    <%= button_tag 'Reset', type: :reset, class: "btn btn-default" %>
 <% end %>

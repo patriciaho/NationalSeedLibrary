@@ -28,6 +28,7 @@
             <ul class="nav navbar-nav">
               <li><%= link_to 'Find Libraries', libraries_path, 'data-no-turbolink' => true %></li>
               <li><%= link_to 'Find Seeds', seeds_path %></li>
+              <li class="show_user">&nbsp;Hi, <%= current_user ? current_user.username : "" %> !&nbsp;&nbsp;&nbsp;|</li>
               <li><%= current_user ? (link_to "Log Out", auths_path, method: :delete) : (link_to "Login", new_auth_path) %></li>
             </ul>
           </div>

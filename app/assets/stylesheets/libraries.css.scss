@@ -80,5 +80,27 @@ h3 {
   width: 300px;
 }
 
+.seed_collection {
+  height: 400px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding-left: 30px;
+  padding-bottom: 50px
+}
+
+.search_bar {
+  position: absolute;
+  top: 250px;
+  right: -15px;
+}
+
+.seed_collection_list {
+  height: 200px;
+  z-index: 999999;
+  overflow: scroll;
+  position: absolute;
+  top: 175px;
+  right: -500px;
+}
 
 
