@@ -2,23 +2,21 @@ require 'spec_helper'
 
 describe SeedsController do
 
-  # describe 'search function' do
-  #   before :each do
-  #     2.times { FactoryGirl.create :seed }
-  #     FactoryGirl.create :seed, common_name: "Watermelon"
-  #   end
-  #   it 'returns relevant record' do
-  #     GET :index, { search: "tomato" }
-  #     assigns(:seeds).count.should eq(2)
-  #   end
-  # end
+  
 
-  # describe "GET 'index'" do
-  #   it "returns http success" do
-  #     get 'index'
-  #     response.should be_success
-  #   end
-  # end
+  describe "GET 'index'" do
+    describe 'search function' do
+      2.times { FactoryGirl.create :seed }
+      FactoryGirl.create :seed, common_name: "Watermelon"
+      it 'returns relevant record' do
+        get 'index', { search: "tomato" }
+        assigns(:seeds).count.should eq(2)
+      end
+    end
+
+    # context 'when format is JSON' do
+    # end
+  end
 
   # describe "GET 'create'" do
   #   it "returns http success" do
